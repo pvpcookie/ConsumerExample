@@ -15,7 +15,7 @@ A simple module illustrating how to create consumer for the Magento 2 Message Qu
 From <mage2_root> folder:
 ```bash
 git clone git@github.com:pvpcookie/ConsumerExample.git app/code/Pvpcookie/ConsumerExample
-php bine/magento module:enable Pvpcookie_ConsumerExample
+php bin/magento module:enable Pvpcookie_ConsumerExample
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 ```

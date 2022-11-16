@@ -1,0 +1,26 @@
+{
+    "name": "pvpcookie/module-consumerexample",
+    "description": "A example consumer ",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Shaun Hogan",
+            "email": "shaun.graphic1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Pvpcookie\\ConsumerExample\\": ""
+        }
+    }
+}

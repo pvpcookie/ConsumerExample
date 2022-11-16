@@ -4,7 +4,6 @@
 		<arguments>
 			<argument name="commands" xsi:type="array">
 				<item name="push" xsi:type="object">Pvpcookie\ConsumerExample\Console\Command\Push</item>
-				<item name="listen" xsi:type="object">Pvpcookie\ConsumerExample\Console\Command\Listen</item>
 			</argument>
 		</arguments>
 	</type>

@@ -1,55 +1,31 @@
 # Mage2 Module Pvpcookie ConsumerExample
 
-    ``pvpcookie/module-consumerexample``
+    ``pvpcookie/consumerexample``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
- - [Configuration](#markdown-header-configuration)
  - [Specifications](#markdown-header-specifications)
- - [Attributes](#markdown-header-attributes)
 
 
 ## Main Functionalities
-A example consumer 
+A simple module illustrating how to create consumer for the Magento 2 Message Queue
 
 ## Installation
-\* = in production please use the `--keep-generated` option
 
-### Type 1: Zip file
-
- - Unzip the zip file in `app/code/Pvpcookie`
- - Enable the module by running `php bin/magento module:enable Pvpcookie_ConsumerExample`
- - Apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
-
-### Type 2: Composer
-
- - Make the module available in a composer repository for example:
-    - private repository `repo.magento.com`
-    - public repository `packagist.org`
-    - public github repository as vcs
- - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
- - Install the module composer by running `composer require pvpcookie/module-consumerexample`
- - enable the module by running `php bin/magento module:enable Pvpcookie_ConsumerExample`
- - apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
-
-
-## Configuration
-
-
-
+From <mage2_root> folder:
+```bash
+git clone git@github.com:pvpcookie/ConsumerExample.git app/code/Pvpcookie/ConsumerExample
+php bine/magento module:enable Pvpcookie_ConsumerExample
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+```
 
 ## Specifications
 
  - Console Command
-	- push
-
- - Console Command
-	- listen
-
-
-## Attributes
+	- `bin/magento pvpcookie:fibonacci:push {integer}`
+ - Consumer Command
+    - `bin/magento queue:consumers:start pvpcookie.fibonacci.calculate --multi-process`
 
 
 

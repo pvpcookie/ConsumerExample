@@ -2,9 +2,9 @@
 
 namespace Pvpcookie\ConsumerExample\Model;
 
-use Pvpcookie\ConsumerExample\Api\Data\MessageInterface;
+use Pvpcookie\ConsumerExample\Api\Data\SequenceMessageInterface;
 
-class Message implements MessageInterface
+class SequenceSequenceMessage implements SequenceMessageInterface
 {
 
     /**

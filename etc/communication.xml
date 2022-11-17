@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
-    <topic name="pvpcookie.fibonacci.calculate" request="Pvpcookie\ConsumerExample\Api\Data\MessageInterface">
+    <topic name="pvpcookie.fibonacci.calculate" request="Pvpcookie\ConsumerExample\Api\Data\SequenceMessageInterface">
         <handler
             name="processFibonacciCalculation"
             type="Pvpcookie\ConsumerExample\Model\Queue\FibonacciCalculationConsumer"
+            method="process"
+        />
+    </topic>
+    <topic name="pvpcookie.rest.get" request="Pvpcookie\ConsumerExample\Api\Data\RestRequestMessageInterface">
+        <handler
+            name="processRestRequest"
+            type="Pvpcookie\ConsumerExample\Model\Queue\RestRequestConsumer"
             method="process"
         />
     </topic>

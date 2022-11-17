@@ -12,7 +12,7 @@ use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\MessageQueue\PublisherInterface;
 use Magento\Framework\Serialize\Serializer\Json;
 use Pvpcookie\ConsumerExample\Api\Data\MessageMetricsInterface;
-use Pvpcookie\ConsumerExample\Model\Message;
+use Pvpcookie\ConsumerExample\Model\SequenceSequenceMessage;
 
 class Fibonacci implements ActionInterface
 {
@@ -62,7 +62,7 @@ class Fibonacci implements ActionInterface
     {
         if ($this->_request->isAjax()) {
             try {
-                $message = new Message();
+                $message = new SequenceSequenceMessage();
                 $message->setSequenceCount(self::SIZE);
                 $this->_publisher->publish(
                     self::TOPIC_NAME,

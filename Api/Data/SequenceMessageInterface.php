@@ -2,7 +2,7 @@
 
 namespace Pvpcookie\ConsumerExample\Api\Data;
 
-interface MessageInterface
+interface SequenceMessageInterface
 {
     /**
      * @return int

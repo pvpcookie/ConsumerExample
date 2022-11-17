@@ -12,25 +12,24 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\MessageQueue\PublisherInterface;
 use Magento\Framework\Serialize\Serializer\Json;
-use Pvpcookie\ConsumerExample\Model\SequenceSequenceMessage;
+use Pvpcookie\ConsumerExample\Model\RestRequestMessage;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Push extends Command
+class RestPush extends Command
 {
 
     /**
      * @var string
      */
-    const NAME_ARGUMENT = "size";
+    const ENDPOINT_ARGUMENT = "endpoint";
 
     /**
      * Queue topic for command
      */
-    const TOPIC_NAME = 'pvpcookie.fibonacci.calculate';
+    const TOPIC_NAME = 'pvpcookie.rest.get';
 
     /**
      * @var Json
@@ -43,11 +42,6 @@ class Push extends Command
     protected PublisherInterface $_publisher;
 
     /**
-     * @var RequestInterface $request
-     */
-    private RequestInterface $_request;
-
-    /**
      * Order constructor.
      *
      * @param PublisherInterface $publisher
@@ -57,11 +51,9 @@ class Push extends Command
      */
     public function __construct(
         PublisherInterface $publisher,
-        Json $json,
-        RequestInterface $request
+        Json $json
     ){
         $this->_json = $json;
-        $this->_request = $request;
         $this->_publisher = $publisher;
         parent::__construct();
     }
@@ -75,15 +67,14 @@ class Push extends Command
     ) {
 
         try {
-            $size = (int) $input->getArgument(self::NAME_ARGUMENT);
-            echo "Size: $size".PHP_EOL;
-            $message = new SequenceSequenceMessage();
-            $message->setSequenceCount($size);
+            $endpoint = $input->getArgument(self::ENDPOINT_ARGUMENT);
+            $message = new RestRequestMessage();
+            $message->setEndpoint($endpoint);
             $this->_publisher->publish(
                 self::TOPIC_NAME,
                 $message
             );
-            $output->writeln("Sequence size: {$size} pushed to ". self::TOPIC_NAME );
+            $output->writeln("Endpoint: {$endpoint} pushed to ". self::TOPIC_NAME );
             return;
         } catch (Exception $e) {
             $output->writeln($e->getMessage());
@@ -97,10 +88,10 @@ class Push extends Command
      */
     protected function configure()
     {
-        $this->setName("pvpcookie:fibonacci:push");
-        $this->setDescription("Push fibonacci job to Queue");
+        $this->setName("pvpcookie:http:push");
+        $this->setDescription("Push rest request job to Queue");
         $this->setDefinition([
-            new InputArgument(self::NAME_ARGUMENT, InputArgument::REQUIRED, "fibonacci sequence size"),
+            new InputArgument(self::ENDPOINT_ARGUMENT, InputArgument::REQUIRED, "Endpoint"),
         ]);
         parent::configure();
     }

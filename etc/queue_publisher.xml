@@ -3,4 +3,7 @@
     <publisher topic="pvpcookie.fibonacci.calculate">
         <connection name="db" exchange="magento-db" />
     </publisher>
+    <publisher topic="pvpcookie.rest.get">
+        <connection name="db" exchange="magento-db" />
+    </publisher>
 </config>

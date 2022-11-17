@@ -9,7 +9,8 @@
 
 ## Main Functionalities
 A simple module illustrating how to create consumer for the Magento 2 Message Queue
-
+- Simple Algorithm calculation example
+- Simple Rest Request example
 ## Installation
 
 From <mage2_root> folder:
@@ -20,12 +21,17 @@ php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 ```
 
+### For Rest Reqwuest tests i recoment using: Webhook Site
+Open `https://webhook.site/` in your browser and copy the link under "Your unique URL (Please copy it from here, not from the address bar!)" 
+
 ## Specifications
 
  - Console Command
 	- `bin/magento pvpcookie:fibonacci:push {integer}`
+    - `bin/magento pvpcookie:http:push {endpoint}`
  - Consumer Command
     - `bin/magento queue:consumers:start pvpcookie.fibonacci.calculate --multi-process`
+    - ` bin/magento queue:consumers:start pvpcookie.rest.get --multi-process`
 
 
 

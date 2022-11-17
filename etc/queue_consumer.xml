@@ -3,4 +3,7 @@
     <consumer name="pvpcookie.fibonacci.calculate"
               queue="pvpcookie.fibonacci.queue"
               handler="Pvpcookie\ConsumerExample\Model\Queue\FibonacciCalculationConsumer::process"/>
+    <consumer name="pvpcookie.rest.get"
+              queue="pvpcookie.rest.queue"
+              handler="Pvpcookie\ConsumerExample\Model\Queue\RestRequestConsumer::process"/>
 </config>

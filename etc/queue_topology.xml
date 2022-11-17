@@ -5,5 +5,10 @@
                  topic="pvpcookie.fibonacci.calculate"
                  destinationType="queue"
                  destination="pvpcookie.fibonacci.queue"/>
+        <binding id="processRestRequestExchange"
+                 topic="pvpcookie.rest.get"
+                 destinationType="queue"
+                 destination="pvpcookie.rest.queue"/>
     </exchange>
 </config>
+

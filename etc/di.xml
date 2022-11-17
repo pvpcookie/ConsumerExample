@@ -4,11 +4,29 @@
 		<arguments>
 			<argument name="commands" xsi:type="array">
 				<item name="push" xsi:type="object">Pvpcookie\ConsumerExample\Console\Command\Push</item>
+                <item name="push-rest" xsi:type="object">Pvpcookie\ConsumerExample\Console\Command\RestPush</item>
 			</argument>
 		</arguments>
 	</type>
     <preference
-        for="Pvpcookie\ConsumerExample\Api\Data\MessageInterface"
-        type="Pvpcookie\ConsumerExample\Model\Message"
+        for="Pvpcookie\ConsumerExample\Api\Data\SequenceMessageInterface"
+        type="Pvpcookie\ConsumerExample\Model\SequenceMessage"
     />
+    <preference
+        for="Pvpcookie\ConsumerExample\Api\Data\RestRequestMessageInterface"
+        type="Pvpcookie\ConsumerExample\Model\RestRequestMessage"
+    />
+    <type name="Pvpcookie\ConsumerExample\Logger\Handler\ConnectorLogHandler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Pvpcookie\ConsumerExample\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">dotdigital-examples</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="connector_log_handler" xsi:type="object">Pvpcookie\ConsumerExample\Logger\Handler\ConnectorLogHandler</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

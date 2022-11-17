@@ -65,6 +65,8 @@ class MessageMetrics
     public function getMetrics(): array
     {
            return [
+                'start_time' => $this->startTime,
+                'end_time' => $this->endTime,
                 'execution_time' => $this->getExecutionTime(),
                 'memory_usage' => $this->getMemoryUsageDelta(),
                 'peak_memory_usage' => $this->getPeakMemoryUsageDelta()

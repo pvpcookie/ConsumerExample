@@ -3,7 +3,8 @@
 namespace Pvpcookie\ConsumerExample\Model\Queue;
 
 use \Psr\Log\LoggerInterface;
-use Pvpcookie\ConsumerExample\Api\Data\MessageInterface;
+use Pvpcookie\ConsumerExample\Api\Data\SequenceMessageInterface;
+use Pvpcookie\ConsumerExample\Logger\Logger;
 use Pvpcookie\ConsumerExample\Model\MessageMetrics;
 
 class FibonacciCalculationConsumer
@@ -24,7 +25,7 @@ class FibonacciCalculationConsumer
      * @param MessageMetrics $messageMetrics
      */
     public function __construct(
-        LoggerInterface $logger,
+        Logger $logger,
         MessageMetrics $messageMetrics
     ) {
         $this->_logger = $logger;
@@ -32,10 +33,10 @@ class FibonacciCalculationConsumer
     }
 
     /**
-     * @param MessageInterface $message
+     * @param SequenceMessageInterface $message
      * @return void
      */
-    public function process(MessageInterface $message)
+    public function process(SequenceMessageInterface $message)
     {
         try{
             $this->_messageMetrics->start();

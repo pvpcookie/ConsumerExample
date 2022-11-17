@@ -13,7 +13,11 @@ A simple module illustrating how to create consumer for the Magento 2 Message Qu
 - Simple Rest Request example
 ## Installation
 
+You will need to restart you cron and insure the corn is working for the consumers to function without the consumer commands
+See more here: [Configure cron jobs](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/configure-cron-jobs.html)
+
 From <mage2_root> folder:
+
 ```bash
 git clone git@github.com:pvpcookie/ConsumerExample.git app/code/Pvpcookie/ConsumerExample
 php bin/magento module:enable Pvpcookie_ConsumerExample

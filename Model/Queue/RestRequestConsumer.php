@@ -77,7 +77,7 @@ class RestRequestConsumer
     {
 
         $client = new Client();
-        $client->setUri('https://webhook.site/71656c47-a9d1-47c2-8bcf-efbd72a6df7a');
+        $client->setUri($endpoint);
         $client->setOptions([
             'maxredirects' => 0,
             'timeout'      => 30,

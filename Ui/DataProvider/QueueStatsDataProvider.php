@@ -28,7 +28,7 @@ class QueueStatsDataProvider extends AbstractDataProvider
     {
         $data = [
             ...$this->queueModel->getMessages('ddg'),
-            ...$this->queueModel->getMessages('')
+            ...$this->queueModel->getMessages('pvpcookie')
         ];
         return array_map(function ($item) {
             return [

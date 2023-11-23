@@ -12,11 +12,10 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\MessageQueue\PublisherInterface;
 use Magento\Framework\Serialize\Serializer\Json;
-use Pvpcookie\ConsumerExample\Model\SequenceSequenceMessage;
+use Pvpcookie\ConsumerExample\Model\SequenceMessage;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Push extends Command
@@ -77,17 +76,17 @@ class Push extends Command
         try {
             $size = (int) $input->getArgument(self::NAME_ARGUMENT);
             echo "Size: $size".PHP_EOL;
-            $message = new SequenceSequenceMessage();
+            $message = new SequenceMessage();
             $message->setSequenceCount($size);
             $this->_publisher->publish(
                 self::TOPIC_NAME,
                 $message
             );
             $output->writeln("Sequence size: {$size} pushed to ". self::TOPIC_NAME );
-            return;
+            return 1;
         } catch (Exception $e) {
             $output->writeln($e->getMessage());
-            return;
+            return 0;
         }
 
     }

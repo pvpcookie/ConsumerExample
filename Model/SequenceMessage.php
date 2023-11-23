@@ -4,7 +4,7 @@ namespace Pvpcookie\ConsumerExample\Model;
 
 use Pvpcookie\ConsumerExample\Api\Data\SequenceMessageInterface;
 
-class SequenceSequenceMessage implements SequenceMessageInterface
+class SequenceMessage implements SequenceMessageInterface
 {
 
     /**

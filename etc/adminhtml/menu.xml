@@ -1,0 +1,8 @@
+<!-- File: app/code/Pvpcookie/ConsumerExample/etc/adminhtml/menu.xml -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Pvpcookie_ConsumerExample::queue_management" title="Queue Management" translate="title" module="Pvpcookie_ConsumerExample" sortOrder="150"
+             parent="Magento_Reports::report" resource="Pvpcookie_ConsumerExample::queue_management"/>
+        <add id="Pvpcookie_ConsumerExample::queue_status" title="Queue Statuses" module="Pvpcookie_ConsumerExample" sortOrder="10" parent="Pvpcookie_ConsumerExample::queue_management" action="pvpcookie_consumerexample/queue/status" resource="Pvpcookie_ConsumerExample::queue_status"/>
+    </menu>
+</config>

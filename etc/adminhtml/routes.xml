@@ -1,0 +1,8 @@
+<!-- File: app/code/Pvpcookie/ConsumerExample/etc/adminhtml/routes.xml -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="pvpcookie_consumerexample" frontName="pvpcookie_consumerexample">
+            <module name="Pvpcookie_ConsumerExample" />
+        </route>
+    </router>
+</config>

@@ -1,0 +1,86 @@
+<!-- File: app/code/Pvpcookie/ConsumerExample/view/adminhtml/ui_component/pvpcookie_consumerexample_queue_status_listing.xml -->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pvpcookie_consumerexample_queue_status_listing.queue_status_listing_data_source</item>
+            <item name="deps" xsi:type="string">pvpcookie_consumerexample_queue_status_listing.queue_status_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">queue_status_columns</item>
+    </argument>
+    <dataSource name="queue_status_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Pvpcookie\ConsumerExample\Ui\DataProvider\QueueStatsDataProvider</argument>
+            <argument name="name" xsi:type="string">queue_status_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">message_id</argument>
+            <argument name="requestFieldName" xsi:type="string">message_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">message_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <columns name="queue_status_columns">
+
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- define which field will be used as ID -->
+                    <item name="indexField" xsi:type="string">message_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+
+        <column name="message_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Topic</item>
+                </item>
+            </argument>
+        </column>
+        <column name="message">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Message</item>
+                </item>
+            </argument>
+        </column>
+        <column name="status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Status</item>
+                </item>
+            </argument>
+        </column>
+        <column name="tries">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Tries</item>
+                </item>
+            </argument>
+        </column>
+
+        <actionsColumn name="actions" class="Pvpcookie\ConsumerExample\Ui\Component\Listing\Column\StatusAction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">message_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+
+    </columns>
+</listing>
